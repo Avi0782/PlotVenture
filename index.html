@@ -1,73 +1,240 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="PlotVenture - Centrum społeczności Discord. Bądź na bieżąco!" />
-  <title>PlotVenture | Dashboard</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PlotVenture - Społeczność Discord & Minecraft">
+  <meta name="theme-color" content="#7e3ff2">
+  <title>PlotVenture</title>
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/png" href="assets/icon.png" />
-  <script src="script.js" defer></script>
+  <link rel="icon" href="favicon.ico">
+  <style>
+    :root {
+      --primary: #7e3ff2;
+      --accent: #a855f7;
+      --bg-dark: #121212;
+      --bg-light: #ffffff;
+      --text-dark: #eaeaea;
+      --text-light: #111111;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-dark);
+      transition: background 0.3s, color 0.3s;
+    }
+    header, section, footer {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(18, 18, 18, 0.9);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      z-index: 999;
+    }
+    nav a {
+      color: var(--accent);
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .hero {
+      text-align: center;
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, #7e3ff2, #9333ea);
+      color: white;
+    }
+    .card {
+      background: #1e1e1e;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      box-shadow: 0 0 20px rgba(126, 63, 242, 0.2);
+    }
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #888;
+      margin-top: 4rem;
+    }
+    .hidden-admin {
+      display: none;
+    }
+    .language-switch, .theme-toggle {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      z-index: 1000;
+      margin-left: 0.5rem;
+    }
+    .theme-toggle {
+      right: 100px;
+    }
+    #discord-status {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+  </style>
 </head>
 <body>
-  <div id="preloader">Ładowanie...</div>
-
-  <header class="header">
-    <img src="assets/logo.svg" alt="PlotVenture Logo" class="logo" />
-    <h1 class="glow">PlotVenture</h1>
-    <p>Twoje centrum społeczności Discord</p>
-    <a href="https://discord.gg/twoj-link" class="join-btn">Dołącz do Discorda</a>
-  </header>
-
-  <nav class="navbar">
-    <a href="index.html" class="active">Strona główna</a>
-    <a href="news.html">Aktualności</a>
-    <a href="team.html">Zespół</a>
-    <a href="faq.html">FAQ</a>
-    <a href="events.html">Wydarzenia</a>
-    <a href="devlog.html">Devlog</a>
-    <a href="contact.html">Kontakt</a>
+  <nav>
+    <div><strong>PlotVenture</strong></div>
+    <div>
+      <a href="#about">O nas</a>
+      <a href="#team">Zespół</a>
+      <a href="#news">Aktualności</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Kontakt</a>
+    </div>
   </nav>
 
-  <main>
-    <section class="discord-widget">
-      <h2>Status serwera Discord</h2>
-      <div id="discord-stats">
-        <p>Ładowanie statusu...</p>
-      </div>
-    </section>
+  <header class="hero">
+    <h1>Witamy w PlotVenture</h1>
+    <p>Społeczność graczy Minecraft i Discord</p>
+    <a href="https://discord.gg/plotventure" target="_blank" style="color:white;font-weight:bold;">Dołącz teraz</a>
+    <div id="discord-status">Łączenie z Discordem...</div>
+  </header>
 
-    <section class="announcements">
-      <h2>Ostatnie ogłoszenia</h2>
-      <div id="news-list">
-        <p>Ładowanie ogłoszeń...</p>
-      </div>
-    </section>
+  <section id="about">
+    <h2>O nas</h2>
+    <div class="card">
+      <p>PlotVenture to nowoczesna społeczność skupiona wokół gry Minecraft oraz platformy Discord. Tworzymy wspólnie bezpieczne i angażujące miejsce dla graczy, budowniczych i twórców.</p>
+    </div>
+  </section>
 
-    <section class="info-cards">
-      <div class="card">
-        <h3>Dołącz do zespołu</h3>
-        <p>Zgłoś się przez formularz i twórz z nami społeczność!</p>
-        <a href="join.html" class="btn">Aplikuj</a>
-      </div>
-      <div class="card">
-        <h3>Masz pytanie?</h3>
-        <p>Sprawdź FAQ lub napisz do nas bezpośrednio.</p>
-        <a href="faq.html" class="btn">FAQ</a>
-      </div>
-    </section>
-  </main>
+  <section id="team">
+    <h2>Nasz Zespół</h2>
+    <div class="card">
+      <p><strong>Właściciel:</strong> Avi</p>
+      <p><strong>Developer:</strong> (tu wpisz nazwę)</p>
+      <p><strong>Moderatorzy, Support:</strong> (lista)</p>
+    </div>
+  </section>
+
+  <section id="news">
+    <h2>Aktualności</h2>
+    <div class="card">
+      <p>📌 2025-06-23 – Strona główna uruchomiona!</p>
+      <p>📢 Nadchodzące wydarzenie: Minecraft Event już w ten weekend!</p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <h2>FAQ</h2>
+    <div class="card">
+      <p><strong>Jak dołączyć do serwera?</strong><br> Kliknij w link do Discorda powyżej.</p>
+      <p><strong>Jak mogę zostać członkiem zespołu?</strong><br> Wypełnij formularz w sekcji „Kontakt”.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Kontakt</h2>
+    <div class="card">
+      <form id="contact-form">
+        <label for="name">Imię:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="message">Wiadomość:</label><br>
+        <textarea id="message" name="message" required></textarea><br><br>
+        <button type="submit">Wyślij</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="hidden-admin" id="admin-panel">
+    <h2>Panel administracyjny</h2>
+    <div class="card">
+      <p>Witaj w ukrytym panelu administracyjnym. Tutaj możesz zarządzać treścią, wydarzeniami, zgłoszeniami i widocznością sekcji.</p>
+    </div>
+  </section>
 
   <footer>
     <p>&copy; 2025 PlotVenture. Wszelkie prawa zastrzeżone.</p>
-    <div class="footer-tools">
-      <button onclick="toggleDarkMode()">Tryb jasny/ciemny</button>
-      <select id="languageSwitcher">
-        <option value="pl">Polski</option>
-        <option value="en">English</option>
-      </select>
-    </div>
   </footer>
+
+  <button class="language-switch" onclick="toggleLang()">EN</button>
+  <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+
+  <script>
+    const translations = {
+      en: {
+        'Witamy w PlotVenture': 'Welcome to PlotVenture',
+        'Społeczność graczy Minecraft i Discord': 'Minecraft & Discord Player Community',
+        'O nas': 'About Us',
+        'Zespół': 'Team',
+        'Aktualności': 'News',
+        'Kontakt': 'Contact',
+        'FAQ': 'FAQ'
+      },
+      pl: {}
+    };
+    let currentLang = 'pl';
+    function toggleLang() {
+      currentLang = currentLang === 'pl' ? 'en' : 'pl';
+      document.querySelectorAll('h1, h2, p, a').forEach(el => {
+        if (translations[currentLang][el.textContent]) {
+          el.textContent = translations[currentLang][el.textContent];
+        }
+      });
+      document.querySelector('.language-switch').textContent = currentLang === 'pl' ? 'EN' : 'PL';
+    }
+
+    function toggleTheme() {
+      const body = document.body;
+      const isDark = body.style.background === 'var(--bg-dark)';
+      body.style.background = isDark ? 'var(--bg-light)' : 'var(--bg-dark)';
+      body.style.color = isDark ? 'var(--text-light)' : 'var(--text-dark)';
+    }
+
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const message = document.getElementById('message').value;
+      fetch('https://discord.com/api/webhooks/YOUR_WEBHOOK_URL', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ content: `📩 Nowa wiadomość od ${name}:\n${message}` })
+      }).then(() => {
+        alert('Wiadomość została wysłana!');
+        document.getElementById('contact-form').reset();
+      });
+    });
+
+    let keys = [];
+    document.addEventListener('keydown', (e) => {
+      keys.push(e.key);
+      if (keys.includes('a') && keys.includes('d')) {
+        document.getElementById('admin-panel').style.display = 'block';
+      }
+    });
+    document.addEventListener('keyup', () => keys = []);
+
+    fetch('https://discord.com/api/guilds/123456789012345678/widget.json')
+      .then(res => res.json())
+      .then(data => {
+        const members = data.presence_count || 'wielu';
+        document.getElementById('discord-status').textContent = `✅ Online: ${members} członków`;
+      })
+      .catch(() => {
+        document.getElementById('discord-status').textContent = '🔴 Brak połączenia z Discordem';
+      });
+  </script>
 </body>
 </html>
