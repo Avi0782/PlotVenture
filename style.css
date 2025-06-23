@@ -1,0 +1,176 @@
+/* === GLOBAL === */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #1f003d, #3b006e);
+  color: #fff;
+  transition: background 0.4s, color 0.4s;
+}
+
+.dark-mode {
+  background: #111;
+  color: #ddd;
+}
+
+/* === HEADER === */
+.header {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: radial-gradient(circle, #a300ff 0%, #1f003d 100%);
+  animation: pulse 10s infinite;
+}
+
+.logo {
+  max-width: 100px;
+  margin-bottom: 1rem;
+}
+
+.glow {
+  font-size: 3rem;
+  text-shadow: 0 0 15px #a300ff;
+  animation: flicker 3s infinite;
+}
+
+.join-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  background: #a300ff;
+  padding: 0.8rem 2rem;
+  border-radius: 30px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 0 15px #a300ff;
+  transition: transform 0.2s;
+}
+
+.join-btn:hover {
+  transform: scale(1.05);
+}
+
+/* === NAVBAR === */
+.navbar {
+  background: #2a0047;
+  padding: 0.8rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navbar a:hover,
+.navbar a.active {
+  text-shadow: 0 0 10px #a300ff;
+}
+
+/* === MAIN SECTIONS === */
+section {
+  padding: 3rem 1rem;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.announcements, .discord-widget {
+  background: rgba(0,0,0,0.2);
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 0 10px #a300ff44;
+}
+
+.info-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.card {
+  background: #280050;
+  padding: 1.5rem;
+  border-radius: 12px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 0 10px #a300ff33;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  background: #a300ff;
+  padding: 0.6rem 1.5rem;
+  border-radius: 25px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 0 10px #a300ff88;
+}
+
+/* === FOOTER === */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: #1a002f;
+  font-size: 0.9rem;
+}
+
+.footer-tools {
+  margin-top: 1rem;
+}
+
+button, select {
+  margin: 0.5rem;
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 6px;
+  background: #a300ff;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+select {
+  background: #370065;
+  color: #fff;
+}
+
+/* === PRELOADER === */
+#preloader {
+  position: fixed;
+  inset: 0;
+  background: #1f003d;
+  color: white;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* === ANIMACJE === */
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+  20%, 24%, 55% { opacity: 0.4; }
+}
+
+@keyframes pulse {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@media (max-width: 768px) {
+  .info-cards { flex-direction: column; align-items: center; }
+  .card { width: 90%; }
+}
+  
